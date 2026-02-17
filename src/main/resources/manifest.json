@@ -1,14 +1,14 @@
 {
-    "Group": "Example",
-    "Name": "ExamplePlugin",
-    "Version": "0.0.2",
-    "Description": "An example plugin for HyTale!",
+    "Group": "com.fidelysla",
+    "Name": "SimpleGreetings",
+    "Version": "1.0.0",
+    "Description": "A simple plugin that greets players and provides greeting commands.",
     "Authors": [
         {
-            "Name": "It's you!"
+            "Name": "Fidel Ysla"
         }
     ],
-    "Website": "example.org",
+    "Website": "https://github.com/fidelysla",
     "ServerVersion": "*",
     "Dependencies": {
         
@@ -17,6 +17,6 @@
         
     },
     "DisabledByDefault": false,
-    "Main": "org.example.plugin.ExamplePlugin",
-    "IncludesAssetPack": true
+    "Main": "com.fidelysla.simplegreetings.SimpleGreetings",
+    "IncludesAssetPack": false
 }
