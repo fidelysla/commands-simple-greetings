@@ -28,8 +28,8 @@ public class SaludoCommand extends CommandBase {
         Player player = ctx.senderAs(Player.class);
         String playerName = player.getDisplayName();
 
-        ctx.sendMessage(Message.raw("§aHola " + playerName + "!"));
-        ctx.sendMessage(Message.raw("§7Bienvenido al servidor."));
-        ctx.sendMessage(Message.raw("§bPlugin: " + pluginName + " v" + pluginVersion));
+        ctx.sendMessage(Message.raw("Hola " + playerName + "!"));
+        ctx.sendMessage(Message.raw("Bienvenido al servidor."));
+        ctx.sendMessage(Message.raw("Plugin: " + pluginName + " v" + pluginVersion));
     }
 }

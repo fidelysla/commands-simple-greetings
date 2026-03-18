@@ -64,7 +64,7 @@ public class TpRandomCommand extends CommandBase {
             store.putComponent(playerRef, Teleport.getComponentType(), teleport);
         });
 
-        ctx.sendMessage(Message.raw("§a¡Teletransportado a una ubicación aleatoria!"));
-        ctx.sendMessage(Message.raw("§7Radio de §e" + RADIUS + " §7bloques desde tu posición original."));
+        ctx.sendMessage(Message.raw("¡Teletransportado a una ubicación aleatoria!"));
+        ctx.sendMessage(Message.raw("Radio de " + RADIUS + " bloques desde tu posición original."));
     }
 }

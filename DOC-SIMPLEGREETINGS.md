@@ -71,10 +71,19 @@ SimpleGreetings/
 │       │               ├── listener/
 │       │               │    └── PlayerJoinListener.java
 │       │               └── command/
-│       │                    └── SaludoCommand.java
+│       │                    ├── SaludoCommand.java
+│       │                    └── TpRandomCommand.java
 │       │
 │       └── resources/
-│           └── manifest.json
+│           ├── manifest.json
+│           ├── Common/
+│           │    ├── Blocks/
+│           │    ├── BlockTextures/
+│           │    ├── Ítems/
+│           │    ├── Characters/
+│           │    ├── Icons/
+│           │    └── NPC/
+│           └── Server/
 │
 ├── build.gradle
 ├── settings.gradle
@@ -156,11 +165,11 @@ public class PlayerJoinListener {
         Player player = event.getPlayer();
 
         player.sendMessage(
-                Message.raw("§aBienvenido " + player.getDisplayName() + "!")
+                Message.raw("Bienvenido " + player.getDisplayName() + "!")
         );
 
         player.sendMessage(
-                Message.raw("§7Escribe §e/saludo §7para recibir un mensaje especial.")
+                Message.raw("Escribe /saludo para recibir un mensaje especial.")
         );
     }
 }
@@ -199,9 +208,9 @@ public class SaludoCommand extends CommandBase {
         Player player = ctx.senderAs(Player.class);
         String playerName = player.getDisplayName();
 
-        ctx.sendMessage(Message.raw("§aHola " + playerName + "!"));
-        ctx.sendMessage(Message.raw("§7Bienvenido al servidor."));
-        ctx.sendMessage(Message.raw("§bPlugin: " + pluginName + " v" + pluginVersion));
+        ctx.sendMessage(Message.raw("Hola " + playerName + "!"));
+        ctx.sendMessage(Message.raw("Bienvenido al servidor."));
+        ctx.sendMessage(Message.raw("Plugin: " + pluginName + " v" + pluginVersion));
     }
 }
 ```
@@ -243,7 +252,7 @@ public class TpRandomCommand extends CommandBase {
         Ref<EntityStore> playerRef = ctx.senderAsPlayerRef();
 
         if (playerRef == null) {
-            ctx.sendMessage(Message.raw("§cEste comando solo puede ser usado por jugadores."));
+            ctx.sendMessage(Message.raw("Este comando solo puede ser usado por jugadores."));
             return;
         }
 
@@ -275,8 +284,8 @@ public class TpRandomCommand extends CommandBase {
             store.putComponent(playerRef, Teleport.getComponentType(), teleport);
         });
 
-        ctx.sendMessage(Message.raw("§a¡Teletransportado a una ubicación aleatoria!"));
-        ctx.sendMessage(Message.raw("§7Radio de §e" + RADIUS + " §7bloques desde tu posición original."));
+        ctx.sendMessage(Message.raw("¡Teletransportado a una ubicación aleatoria!"));
+        ctx.sendMessage(Message.raw("Radio de " + RADIUS + " bloques desde tu posición original."));
     }
 }
 ```

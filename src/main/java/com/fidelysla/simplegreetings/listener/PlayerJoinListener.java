@@ -11,11 +11,11 @@ public class PlayerJoinListener {
         Player player = event.getPlayer();
 
         player.sendMessage(
-                Message.raw("§aBienvenido " + player.getDisplayName() + "!")
+                Message.raw("Bienvenido " + player.getDisplayName() + "!")
         );
 
         player.sendMessage(
-                Message.raw("§7Escribe §e/saludo §7para recibir un mensaje especial.")
+                Message.raw("Escribe /saludo para recibir un mensaje especial.")
         );
     }
 }
