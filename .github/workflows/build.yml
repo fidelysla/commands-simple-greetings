@@ -32,7 +32,7 @@ jobs:
       run: chmod +x gradlew
     
     - name: Build with Gradle
-      run: ./gradlew shadowJar
+      run: ./gradlew build
     
     - name: Run Tests
       run: ./gradlew test
@@ -62,7 +62,7 @@ jobs:
       run: chmod +x gradlew
     
     - name: Build with Gradle
-      run: ./gradlew shadowJar
+      run: ./gradlew build
     
     - name: Create Release
       uses: softprops/action-gh-release@v1
