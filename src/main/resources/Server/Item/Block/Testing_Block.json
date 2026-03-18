@@ -1,0 +1,11 @@
+{
+  "Textures": [
+    {
+      "All": "Blocks/Texture.png"
+    }
+  ],
+  "Material": "Solid",
+  "Light": {
+    "Color": "#f0f"
+  }
+}
