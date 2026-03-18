@@ -26,11 +26,24 @@ ext {
     }
 }
 
-if (!project.hasProperty('hytaleHome')) {
-    throw new GradleException('Your Hytale install could not be detected automatically. If you are on an unsupported platform or using a custom install location, please define the install location using the hytale_home property.');
-}
-else if (!file(project.findProperty('hytaleHome')).exists()) {
-    throw new GradleException("Failed to find Hytale at the expected location. Please make sure you have installed the game. The expected location can be changed using the hytale_home property. Currently looking in ${project.findProperty('hytaleHome')}")
+// if (!project.hasProperty('hytaleHome')) {
+//     throw new GradleException('Your Hytale install could not be detected automatically. If you are on an unsupported platform or using a custom install location, please define the install location using the hytale_home property.');
+// }
+// else if (!file(project.findProperty('hytaleHome')).exists()) {
+//     throw new GradleException("Failed to find Hytale at the expected location. Please make sure you have installed the game. The expected location can be changed using the hytale_home property. Currently looking in ${project.findProperty('hytaleHome')}")
+// }
+
+def isCI = System.getenv("CI") != null
+
+if (!isCI) {
+    if (!project.hasProperty('hytaleHome')) {
+        throw new GradleException('Your Hytale install could not be detected automatically. If you are on an unsupported platform or using a custom install location, please define the install location using the hytale_home property.')
+    }
+    else if (!file(project.findProperty('hytaleHome')).exists()) {
+        throw new GradleException("Failed to find Hytale at the expected location. Please make sure you have installed the game. The expected location can be changed using the hytale_home property. Currently looking in ${project.findProperty('hytaleHome')}")
+    }
+} else {
+    println("Running in CI - skipping Hytale check")
 }
 
 java {
@@ -47,8 +60,13 @@ javadoc {
 // Adds the Hytale server as a build dependency, allowing you to reference and
 // compile against their code. This requires you to have Hytale installed using
 // the official launcher for now.
-dependencies {
-    implementation(files("$hytaleHome/install/$patchline/package/game/latest/Server/HytaleServer.jar"))
+// dependencies {
+//     implementation(files("$hytaleHome/install/$patchline/package/game/latest/Server/HytaleServer.jar"))
+// }
+if (!isCI) {
+    dependencies {
+        implementation(files("$hytaleHome/install/$patchline/package/game/latest/Server/HytaleServer.jar"))
+    }
 }
 
 // Create the working directory to run the server if it does not already exist.
