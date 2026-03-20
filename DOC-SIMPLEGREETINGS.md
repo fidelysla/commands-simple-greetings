@@ -79,11 +79,22 @@ SimpleGreetings/
 │           ├── Common/
 │           │    ├── Blocks/
 │           │    ├── BlockTextures/
-│           │    ├── Ítems/
+│           │    │    ├── Neko_Stone.png
+│           │    │    ├── Neko_Stone_2.png
+│           │    │    └── Neko_Stone_3.png
+│           │    ├── Items/
 │           │    ├── Characters/
 │           │    ├── Icons/
 │           │    └── NPC/
 │           └── Server/
+│               ├── Languages/
+│               │    └── es-ES/
+│               │         └── server.lang
+│               └── Item/
+│                   └── Items/
+│                        └── Rock/
+│                             └── Stone/
+│                                  └── Neko_Stone.json
 │
 ├── build.gradle
 ├── settings.gradle
